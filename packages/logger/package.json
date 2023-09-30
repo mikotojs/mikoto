@@ -1,0 +1,22 @@
+{
+  "name": "@mikotojs/logger",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "index.ts",
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "fmt": "dprint fmt",
+    "build": "swc * -d dist --only **/*.ts --config-file ../../.swcrc",
+    "build:types": "rimraf ./dist && tsc --emitDeclarationOnly --declaration --outDir dist",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@mikotojs/is": "workspace:*",
+    "winston": "^3.10.0"
+  },
+  "devDependencies": {
+    "@types/mikotojs-tsconfig": "workspace:*",
+    "@types/node": "^20.5.9"
+  }
+}

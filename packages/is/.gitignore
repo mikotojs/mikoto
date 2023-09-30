@@ -1,0 +1,21 @@
+.env
+node_modules/**
+dist/
+temp/**
+/config/*
+!config/config.example.json[$|5]
+!config/config.single.json[$|5]
+.idea
+/src/config/config.json
+yarn-error.log
+/logs
+/bin
+/ql
+
+# yarn 
+.yarn-integrity
+.yarn
+.yarnrc.yml
+
+index.js
+index.d.ts

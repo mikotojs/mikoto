@@ -1,0 +1,25 @@
+{
+  "name": "@mikotojs/push",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "index.ts",
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "fmt": "dprint fmt",
+    "build": "swc * -d dist --only **/*.ts --config-file ../../.swcrc",
+    "build:types": "rimraf ./dist && tsc --emitDeclarationOnly --declaration --outDir dist",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@mikotojs/http": "workspace:*",
+    "@mikotojs/logger": "workspace:*",
+    "@mikotojs/utils": "workspace:*",
+    "nodemailer": "^6.9.5",
+    "tunnel": "^0.0.6"
+  },
+  "devDependencies": {
+    "@types/mikotojs-tsconfig": "workspace:*",
+    "@types/node": "^20.5.9"
+  }
+}

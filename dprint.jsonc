@@ -1,0 +1,30 @@
+{
+  "lineWidth": 120,
+  "indentWidth": 2,
+  "newLineKind": "lf",
+  "useTabs": false,
+  "typescript": {
+    "semiColons": "asi",
+    "quoteStyle": "preferSingle",
+    "quoteProps": "consistent",
+    "newLineKind": "lf",
+    "singleBodyPosition": "sameLine",
+    "trailingCommas": "onlyMultiLine",
+    "arrayExpression.preferHanging": "always"
+  },
+  "json": {},
+  "markdown": {},
+  "toml": {},
+  "dockerfile": {},
+  "excludes": [
+    "**/node_modules",
+    "**/*-lock.json"
+  ],
+  "plugins": [
+    "https://plugins.dprint.dev/json-0.17.4.wasm",
+    "https://plugins.dprint.dev/markdown-0.16.0.wasm",
+    "https://plugins.dprint.dev/toml-0.5.4.wasm",
+    "https://plugins.dprint.dev/dockerfile-0.3.0.wasm",
+    "https://plugins.dprint.dev/typescript-0.87.1.wasm"
+  ]
+}

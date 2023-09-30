@@ -1,0 +1,7 @@
+{
+  "name": "@types/mikotojs-tsconfig",
+  "version": "0.0.1",
+  "description": "@types/mikotojs-tsconfig",
+  "types": "./index.d.ts",
+  "scripts": {}
+}

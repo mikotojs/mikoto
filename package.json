@@ -1,0 +1,49 @@
+{
+  "name": "mikotojs",
+  "version": "1.0.0",
+  "private": true,
+  "author": "catlair <catlair@qq.com>",
+  "license": "MIT",
+  "repository": "https://github.com/mikotojs/mikoto.git",
+  "main": "index.js",
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "fmt": "dprint fmt",
+    "git-hooks": "simple-git-hooks"
+  },
+  "dependencies": {
+    "core-js": "^3.32.2",
+    "dotenv": "^16.3.1"
+  },
+  "optionalDependencies": {
+    "tsx": "^3.13.0"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.41.0",
+    "@swc/cli": "^0.1.62",
+    "@swc/core": "^1.3.89",
+    "@turbo/gen": "^1.10.14",
+    "@types/node": "^20.5.9",
+    "dprint": "^0.40.2",
+    "esbuild": "^0.19.3",
+    "eslint": "^8.48.0",
+    "lint-staged": "^14.0.1",
+    "rimraf": "^5.0.5",
+    "simple-git-hooks": "^2.9.0",
+    "turbo": "^1.10.14",
+    "typescript": "^5.2.2"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
+  },
+  "lint-staged": {
+    "*": "turbo run fmt lint:fix --"
+  },
+  "workspaces": [
+    "packages/*",
+    "plugins/*",
+    "apps/*"
+  ]
+}

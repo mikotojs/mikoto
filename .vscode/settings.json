@@ -1,0 +1,24 @@
+{
+  "prettier.enable": false,
+  "editor.defaultFormatter": "dprint.dprint",
+  "json.schemas": [
+    {
+      "fileMatch": [
+        ".swcrc"
+      ],
+      "url": "https://json.schemastore.org/swcrc"
+    },
+    {
+      "fileMatch": [
+        "turbo.json"
+      ],
+      "url": "https://turbo.build/schema.json"
+    },
+    {
+      "fileMatch": [
+        ".syncpackrc.json"
+      ],
+      "url": "https://unpkg.com/syncpack@11.2.1/dist/schema.json"
+    }
+  ]
+}

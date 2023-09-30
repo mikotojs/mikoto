@@ -1,0 +1,28 @@
+{
+  "extends": [
+    "@antfu"
+  ],
+  "rules": {
+    "no-console": "warn",
+    "curly": [
+      "warn",
+      "all"
+    ],
+    "operator-linebreak": [
+      "warn",
+      "before",
+      {
+        "overrides": {
+          "=": "after"
+        }
+      }
+    ],
+    "brace-style": "off",
+    "@typescript-eslint/brace-style": "off",
+    "sort-imports": "off",
+    "import/order": "off",
+    "@typescript-eslint/ban-ts-comment": "off",
+    "space-before-function-paren": "off",
+    "@typescript-eslint/space-before-function-paren": "off"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "recommendations": [
+    "dprint.dprint",
+    "eslint.vscode-eslint"
+  ]
+}

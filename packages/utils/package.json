@@ -1,0 +1,34 @@
+{
+  "name": "@mikotojs/utils",
+  "version": "0.0.1",
+  "author": "catlair <catlair@qq.com>",
+  "license": "MIT",
+  "repository": "git@github.com:mikotojs/utils.git",
+  "main": "index.ts",
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "time.js",
+    "time.d.ts"
+  ],
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "fmt": "dprint fmt",
+    "build": "swc * -d dist --only **/*.ts --config-file ../../.swcrc",
+    "build:types": "rimraf ./dist && tsc --emitDeclarationOnly --declaration --outDir dist",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@mikotojs/is": "workspace:*",
+    "dayjs": "^1.11.9"
+  },
+  "devDependencies": {
+    "@types/mikotojs-tsconfig": "workspace:*",
+    "@types/node": "^20.5.9"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}

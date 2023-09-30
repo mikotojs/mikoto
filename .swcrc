@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json.schemastore.org/swcrc",
+  "jsc": {
+    "parser": {
+      "syntax": "typescript"
+    }
+  },
+  "minify": false,
+  "env": {
+    "targets": {
+      "node": "14"
+    },
+    "mode": "usage",
+    "coreJs": "3.32"
+  },
+  "module": {
+    "type": "es6"
+  },
+  "exclude": [
+    ".*\\.js$",
+    ".*\\.map$",
+    "node_modules/",
+    "dist/",
+    "lib/"
+  ]
+}
