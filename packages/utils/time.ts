@@ -102,13 +102,3 @@ export function isToday(date: Date | number, isUnix = true): boolean {
 export function getUnixTime() {
   return dayjs().unix()
 }
-
-export class Time {
-  static get now() {
-    return getUnixTime()
-  }
-
-  static get PRC() {
-    return getPRCDate()
-  }
-}

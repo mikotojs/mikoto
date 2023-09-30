@@ -1,11 +1,8 @@
 /**
  * form https://github.com/dd178/BILI_judgement/blob/master/judgement.py
  */
-import type { JuryCaseOpinion } from '@mikotojs/biliapi'
-import { useJuryApi } from '@mikotojs/biliapi'
-import { CookieJar } from '@mikotojs/http'
-import { createLogger } from '@mikotojs/logger'
-import { getRandomItem, sleep } from '@mikotojs/utils'
+import type { JuryCaseOpinion, LoggerOptions } from '@mikotojs/core'
+import { CookieJar, createLogger, getRandomItem, sleep, useJuryApi } from '@mikotojs/core'
 import { JuryVote, JuryVoteResult, VoteResCode } from './jury.emum'
 
 export interface Config {
@@ -33,12 +30,17 @@ export interface Config {
   async: boolean
 }
 
-export function jury(cookie: string, config: Config) {
-  const logger = createLogger({})
+export function jury(cookie: string, config: Config, loggerOptions: LoggerOptions = {}) {
+  const logger = createLogger(loggerOptions)
   const cookieJar = new CookieJar(cookie)
+  const csrf = cookieJar.getCookieItemRef('bili_jct')
+  if (!csrf) {
+    logger.error('cookie 缺少 bili_jct 字段')
+    return
+  }
   const juryApi = useJuryApi({
     cookieJar,
-  }, { csrf: cookieJar.getCookieItem('bili_jct') })
+  }, { csrf })
 
   /**
    * 给案件投票

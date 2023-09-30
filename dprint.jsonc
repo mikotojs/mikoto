@@ -18,7 +18,8 @@
   "dockerfile": {},
   "excludes": [
     "**/node_modules",
-    "**/*-lock.json"
+    "**/*-lock.json",
+    "**/dist"
   ],
   "plugins": [
     "https://plugins.dprint.dev/json-0.17.4.wasm",

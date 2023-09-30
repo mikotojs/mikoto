@@ -10,7 +10,7 @@ function getCaseDetailHeader(case_id: string) {
 }
 
 interface Options {
-  csrf: string
+  csrf: Ref<string>
 }
 
 export function useJuryApi(vGotoptions: VGotOptions, { csrf }: Options) {
@@ -38,7 +38,7 @@ export function useJuryApi(vGotoptions: VGotOptions, { csrf }: Options) {
     return request.post<ApiBaseProp>(
       'x/credit/v2/jury/apply',
       {
-        csrf,
+        csrf: csrf.value,
       },
       {
         headers: {
@@ -61,7 +61,7 @@ export function useJuryApi(vGotoptions: VGotOptions, { csrf }: Options) {
    * 拉取一个案件用于风纪委员投票
    */
   function getJuryCaseVote() {
-    return request.get<JuryCaseNextDto>(`x/credit/v2/jury/case/next?csrf=${csrf}`, {
+    return request.get<JuryCaseNextDto>(`x/credit/v2/jury/case/next?csrf=${csrf.value}`, {
       headers: {
         Origin: OriginURLs.www,
         Referer: `${RefererURLs.judge}index`,
@@ -90,7 +90,7 @@ export function useJuryApi(vGotoptions: VGotOptions, { csrf }: Options) {
       {
         case_id,
         vote,
-        csrf,
+        csrf: csrf.value,
         insiders,
         anonymous,
       },

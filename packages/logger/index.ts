@@ -13,13 +13,19 @@ export interface LoggerOptions {
 }
 
 export function createLogger(options: LoggerOptions) {
-  const logger = winston.createLogger({
-    level: 'silly',
-    transports: [
+  const transports: winston.transport[] = []
+
+  if (options.consoleLevel) {
+    transports.push(
       new winston.transports.Console({
         format: formatPrintf(options.useEmoji),
       }),
-    ],
+    )
+  }
+
+  const logger = winston.createLogger({
+    level: 'silly',
+    transports,
     format: formatTimestamp(options.useDate),
   })
 

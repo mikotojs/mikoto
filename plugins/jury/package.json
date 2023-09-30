@@ -17,10 +17,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@mikotojs/biliapi": "workspace:*",
-    "@mikotojs/http": "workspace:*",
-    "@mikotojs/logger": "workspace:*",
-    "@mikotojs/utils": "workspace:*"
+    "@mikotojs/core": "workspace:*"
   },
   "devDependencies": {
     "@types/mikotojs-tsconfig": "workspace:*",

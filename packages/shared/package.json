@@ -11,6 +11,9 @@
     "build:types": "rimraf ./dist && tsc --emitDeclarationOnly --declaration --outDir dist",
     "typecheck": "tsc --noEmit"
   },
+  "dependencies": {
+    "@mikotojs/utils": "workspace:*"
+  },
   "devDependencies": {
     "@types/mikotojs-tsconfig": "workspace:*",
     "@types/node": "^20.5.9"

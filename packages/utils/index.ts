@@ -2,6 +2,7 @@ import { isArray, isObject } from '@mikotojs/is'
 import { Buffer } from 'node:buffer'
 import * as crypto from 'node:crypto'
 
+export * from './cookie'
 export * from './time'
 
 /**
@@ -15,7 +16,7 @@ export function createUUID() {
 }
 
 /**
- * 将 JSONP 返回的数据转换为对象
+ * 将 JSONP 返回的数据转换为对象e
  */
 export function jsonp2Object(jsonp: string) {
   const jsonpData = jsonp.replace(/^\w+\(/, '').replace(/\)$/, '')
