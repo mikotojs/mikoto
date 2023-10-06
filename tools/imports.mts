@@ -33,7 +33,8 @@ function getSubdirectories(path: string) {
 }
 
 function writeTsFile(dirs: string[], packagesPath: string) {
-  const indexTS = dirs.reduce((ts, dirname) => `${ts}export * from '@mikotojs/${dirname}';`, '')
+  // const indexTS = dirs.reduce((ts, dirname) => `${ts}export * from '@mikotojs/${dirname}';`, '')
+  const indexTS = dirs.reduce((ts, dirname) => `${ts}export * from '../${dirname}';`, '')
   const indexTSPath = path.resolve(packagesPath, './core/index.ts')
 
   fs.writeFileSync(indexTSPath, indexTS, 'utf8')

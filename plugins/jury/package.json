@@ -17,7 +17,8 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@mikotojs/core": "workspace:*"
+    "@mikotojs/core": "workspace:*",
+    "core-js": "^3.32.2"
   },
   "devDependencies": {
     "@types/mikotojs-tsconfig": "workspace:*",

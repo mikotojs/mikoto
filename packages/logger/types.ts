@@ -1,1 +1,1 @@
-export type LevelType = 'error' | 'warn' | 'info' | 'http' | 'verbose' | 'debug' | 'silly'
+export type LevelType = 'fatal' | 'error' | 'warn' | 'info' | 'debug' | 'trace'

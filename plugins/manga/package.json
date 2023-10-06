@@ -1,8 +1,13 @@
 {
-  "name": "@mikotojs/logger",
+  "name": "@mikotojs/manga",
   "version": "0.0.1",
+  "author": "catlair <catlair@qq.com>",
   "license": "MIT",
   "main": "index.ts",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
@@ -12,9 +17,9 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@mikotojs/is": "workspace:*",
-    "pino": "^8.15.6",
-    "pino-pretty": "^10.2.3"
+    "@catlair/bilicomic-dataflow": "^0.0.4",
+    "@mikotojs/core": "workspace:*",
+    "core-js": "^3.32.2"
   },
   "devDependencies": {
     "@types/mikotojs-tsconfig": "workspace:*",

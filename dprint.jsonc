@@ -19,7 +19,9 @@
   "excludes": [
     "**/node_modules",
     "**/*-lock.json",
-    "**/dist"
+    "**/dist",
+    "**/.next",
+    "**/.vite"
   ],
   "plugins": [
     "https://plugins.dprint.dev/json-0.17.4.wasm",

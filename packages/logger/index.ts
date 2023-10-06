@@ -1,6 +1,5 @@
-import { isError, isObject } from '@mikotojs/is'
-import winston from 'winston'
-import { formatPrintf, formatTimestamp } from './format'
+import { isArray, isError, isObject } from '@mikotojs/is'
+import pino from 'pino'
 import type { LevelType } from './types'
 
 export interface LoggerOptions {
@@ -12,37 +11,26 @@ export interface LoggerOptions {
   fileSplit?: 'day' | 'month'
 }
 
-export function createLogger(options: LoggerOptions) {
-  const transports: winston.transport[] = []
-
-  if (options.consoleLevel) {
-    transports.push(
-      new winston.transports.Console({
-        format: formatPrintf(options.useEmoji),
-      }),
-    )
-  }
-
-  const logger = winston.createLogger({
-    level: 'silly',
-    transports,
-    format: formatTimestamp(options.useDate),
+export function createLogger(_options: LoggerOptions) {
+  const logger = pino({
+    transport: {
+      target: 'pino-pretty',
+    },
   })
 
   const handleOptionalParams = (message?: any, ...optionalParams: any[]) => {
+    const toString = (msg: any) => isObject(msg) || isArray(msg) ? JSON.stringify(msg) : msg
+    message = toString(message)
     return optionalParams
       ? optionalParams.reduce(
-        (msg, param) => `${msg} ${isObject(param) ? JSON.stringify(param) : param}`,
+        (msg, param) => `${msg} ${toString(param)}`,
         message || '',
       )
       : message
   }
 
   const log = (level: LevelType, ...optionalParams: any[]) => {
-    logger.log({
-      level,
-      message: handleOptionalParams(...optionalParams),
-    })
+    logger[level](handleOptionalParams(...optionalParams))
   }
 
   const logWrap = (level: LevelType) => (message?: any, ...optionalParams: any[]) =>
@@ -61,14 +49,14 @@ export function createLogger(options: LoggerOptions) {
       log('error', `[${error.message}]`, ...optionalParams)
     }
     if (Reflect.has(error, 'stack')) {
-      log('silly', error.stack)
+      log('trace', error.stack)
     }
     if (Reflect.has(error, 'cause')) {
       log('debug', error.cause)
     }
     if (Reflect.has(error, 'response')) {
       // @ts-expect-error
-      log('http', error.response)
+      log('trace', error.response)
     }
   }
 
@@ -76,10 +64,9 @@ export function createLogger(options: LoggerOptions) {
     logger,
     info: logWrap('info'),
     warn: logWrap('warn'),
-    verbose: logWrap('verbose'),
+    verbose: logWrap('info'),
     debug: logWrap('debug'),
     error,
-    silly: logWrap('silly'),
-    http: logWrap('http'),
+    trace: logWrap('trace'),
   }
 }

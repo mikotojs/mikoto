@@ -14,7 +14,7 @@
     "coreJs": "3.32"
   },
   "module": {
-    "type": "es6"
+    "type": "commonjs"
   },
   "exclude": [
     ".*\\.js$",

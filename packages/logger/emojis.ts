@@ -1,9 +1,10 @@
 export const emojis = {
-  error: '❓',
+  error: '🚨',
   warn: '❔',
   info: '👻',
-  http: '🌐',
+  trace: '🔍',
   verbose: '💬',
   debug: '🐛',
-  silly: '🤪',
+  silly: '🔍',
+  fatal: '💀',
 } as const

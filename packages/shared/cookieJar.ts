@@ -35,7 +35,7 @@ export class CookieJar {
   getCookieItemRef(key: string): Ref<string> | null {
     if (!this.refMap.has(key)) {
       const value = this.getCookieItem(key)
-      if (value) {
+      if (!value) {
         return null
       }
       this.refMap.set(key, value)

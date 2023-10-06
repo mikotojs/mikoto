@@ -1,8 +1,16 @@
 {
-  "name": "@mikotojs/logger",
+  "name": "@mikotojs/fastify",
   "version": "0.0.1",
+  "author": "catlair <catlair@qq.com>",
   "license": "MIT",
+  "repository": "git@github.com:mikotojs/fastify.git",
   "main": "index.ts",
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "time.js",
+    "time.d.ts"
+  ],
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
@@ -12,12 +20,15 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@mikotojs/is": "workspace:*",
-    "pino": "^8.15.6",
-    "pino-pretty": "^10.2.3"
+    "@mikotojs/jury": "workspace:*",
+    "fastify": "^4.23.2"
   },
   "devDependencies": {
     "@types/mikotojs-tsconfig": "workspace:*",
     "@types/node": "^20.5.9"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }
