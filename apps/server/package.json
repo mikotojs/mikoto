@@ -21,7 +21,10 @@
   },
   "dependencies": {
     "@mikotojs/jury": "workspace:*",
-    "fastify": "^4.23.2"
+    "fastify": "^4.23.2",
+    "fastify-socket.io": "^5.0.0",
+    "json-schema-to-ts": "^2.9.2",
+    "socket.io": "^4.7.2"
   },
   "devDependencies": {
     "@types/mikotojs-tsconfig": "workspace:*",

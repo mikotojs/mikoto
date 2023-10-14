@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script type="module">
+    import { io } from 'https://cdn.socket.io/4.3.2/socket.io.esm.min.js'
+
+    const socket = io('ws://localhost:3000')
+    window.sckoet = socket
+
+    socket.on('connect', () => {
+      console.log(socket.id) // x8WIv7-mJelg7on_ALbx
+})
+
+socket.on('hello', (a) => {
+  console.log('hello', a) // x8WIv7-mJelg7on_ALbx
+})
+  </script>
+</body>
+</html>

@@ -14,7 +14,18 @@ export interface LoggerOptions {
 export function createLogger(_options: LoggerOptions) {
   const logger = pino({
     transport: {
-      target: 'pino-pretty',
+      targets: [
+        {
+          target: './ws-transport.ts',
+          level: 'trace',
+          options: {},
+        },
+        {
+          target: 'pino-pretty',
+          options: {},
+          level: 'trace',
+        },
+      ],
     },
   })
 
